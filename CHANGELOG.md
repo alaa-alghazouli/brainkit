@@ -2,6 +2,29 @@
 
 All notable changes to this project are documented here.
 
+## [2.0.0] - 2026-02-14
+
+### Added
+
+- Restructured repository into multi-skill layout with:
+  - `skills/*` for source skill folders
+  - `skill-artifacts/*.skill` for packaged artifacts
+- Added npm package support under `@alaa-alghazouli/brainkit`.
+- Added CLI tool `brainkit` with commands for list/manifest/path/install.
+- Added JavaScript API for listing and installing skills.
+- Added comprehensive automated test suite covering API, CLI, build output, and scripts.
+- Added release publish workflow for npm on GitHub release publish.
+
+### Changed
+
+- Renamed project/repo identity to `brainkit`.
+- Upgraded CI to run tests on every push and pull request across Node 18/20/22.
+
+### Removed
+
+- Removed legacy single-skill root structure.
+- Removed tracked `dist` artifact from repository; build output is generated.
+
 ## [1.1.0] - 2026-02-14
 
 ### Added

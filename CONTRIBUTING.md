@@ -1,11 +1,14 @@
 # Contributing
 
-Thanks for contributing to `threejs-performance-optimizer`.
+Thanks for contributing to `brainkit`.
 
 ## Ways to contribute
 
-- Improve optimization guidance in `threejs-performance-optimizer/SKILL.md`
-- Add or refine references under `threejs-performance-optimizer/references/`
+- Improve optimization guidance in `skills/threejs-performance-optimizer/SKILL.md`
+- Add or refine references under `skills/threejs-performance-optimizer/references/`
+- Add new skills under `skills/<skill-name>/`
+- Add corresponding packaged artifacts in `skill-artifacts/`
+- Add AI tool packages under `tools/` and update `tools/manifest.json`
 - Improve docs and demos in `docs/`
 - Report outdated APIs, broken recommendations, or missing edge cases
 

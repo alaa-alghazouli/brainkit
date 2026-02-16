@@ -2,55 +2,28 @@ name: CI
 
 on:
   push:
-    branches: ["main"]
   pull_request:
 
 jobs:
-  validate-skill:
+  test:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: [18, 20, 22]
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          python-version: "3.12"
+          node-version: ${{ matrix.node-version }}
+          cache: npm
 
       - name: Install dependencies
-        run: python -m pip install --upgrade pip pyyaml
+        run: npm ci
 
-      - name: Validate skill frontmatter and structure
-        run: |
-          python - <<'PY'
-          import pathlib
-          import re
-          import yaml
-
-          repo = pathlib.Path('.')
-          skill_dir = repo / 'threejs-performance-optimizer'
-          skill_md = skill_dir / 'SKILL.md'
-          dist_file = repo / 'dist' / 'threejs-performance-optimizer.skill'
-
-          assert skill_dir.exists(), 'Missing skill directory'
-          assert skill_md.exists(), 'Missing SKILL.md'
-
-          content = skill_md.read_text(encoding='utf-8')
-          frontmatter_match = re.match(r'^---\n(.*?)\n---\n', content, re.DOTALL)
-          assert frontmatter_match, 'Missing YAML frontmatter in SKILL.md'
-
-          frontmatter = yaml.safe_load(frontmatter_match.group(1))
-          assert isinstance(frontmatter, dict), 'Invalid frontmatter format'
-          assert set(frontmatter.keys()) == {'name', 'description'}, 'Frontmatter must only include name and description'
-          assert frontmatter['name'] == 'threejs-performance-optimizer', 'Skill name mismatch'
-          assert isinstance(frontmatter['description'], str) and len(frontmatter['description']) >= 120, 'Description is too short'
-
-          references = sorted((skill_dir / 'references').glob('*.md'))
-          assert references, 'Missing references files'
-          for ref in references:
-            assert ref.stat().st_size > 200, f'Reference file too small: {ref}'
-
-          assert dist_file.exists(), 'Missing packaged .skill artifact in dist/'
-          print('Skill structure validation passed')
-          PY
+      - name: Run tests
+        run: npm test

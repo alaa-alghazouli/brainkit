@@ -1,0 +1,57 @@
+{
+  "name": "@alaa-alghazouli/brainkit",
+  "version": "2.0.0",
+  "description": "Installable npm bundle of AI skills with CLI and JavaScript API.",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "bin": {
+    "brainkit": "dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "validate:skills": "node scripts/validate-skills.mjs",
+    "test": "npm run build && npm run validate:skills && node --test --test-concurrency=1 tests/**/*.test.mjs",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test"
+  },
+  "keywords": [
+    "ai",
+    "skills",
+    "threejs",
+    "react-three-fiber",
+    "webgl",
+    "webgpu",
+    "performance",
+    "llm",
+    "codex"
+  ],
+  "author": "Alaa Alghazouli",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alaa-alghazouli/brainkit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/alaa-alghazouli/brainkit/issues"
+  },
+  "homepage": "https://github.com/alaa-alghazouli/brainkit#readme",
+  "engines": {
+    "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

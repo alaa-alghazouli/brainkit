@@ -3,7 +3,7 @@
 ## Skill identity
 
 - Name: `threejs-performance-optimizer`
-- Package: `dist/threejs-performance-optimizer.skill`
+- Artifact: `skill-artifacts/threejs-performance-optimizer.skill`
 
 ## Trigger intent
 
@@ -27,13 +27,13 @@ Every optimization output should include:
 
 ## Reference modules
 
-- `references/performance-workflow.md`
-- `references/renderer-and-loop-patterns.md`
-- `references/assets-and-loaders.md`
-- `references/draw-calls-materials-lighting.md`
-- `references/memory-and-disposal.md`
-- `references/r3f-rules.md`
-- `references/outdated-guidance.md`
+- `skills/threejs-performance-optimizer/references/performance-workflow.md`
+- `skills/threejs-performance-optimizer/references/renderer-and-loop-patterns.md`
+- `skills/threejs-performance-optimizer/references/assets-and-loaders.md`
+- `skills/threejs-performance-optimizer/references/draw-calls-materials-lighting.md`
+- `skills/threejs-performance-optimizer/references/memory-and-disposal.md`
+- `skills/threejs-performance-optimizer/references/r3f-rules.md`
+- `skills/threejs-performance-optimizer/references/outdated-guidance.md`
 
 ## Guardrails
 

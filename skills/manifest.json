@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "skills": [
+    {
+      "slug": "threejs-performance-optimizer",
+      "name": "Threejs Performance Optimizer",
+      "description": "Profile-first optimization workflow for Three.js and React Three Fiber performance.",
+      "version": "1.1.0",
+      "artifact": "threejs-performance-optimizer.skill",
+      "source": "skills/threejs-performance-optimizer"
+    }
+  ]
+}

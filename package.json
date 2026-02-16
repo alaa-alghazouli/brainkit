@@ -23,7 +23,7 @@
   "scripts": {
     "build": "node scripts/build.mjs",
     "validate:skills": "node scripts/validate-skills.mjs",
-    "test": "npm run build && npm run validate:skills && node --test --test-concurrency=1 tests/**/*.test.mjs",
+    "test": "npm run build && npm run validate:skills && node --test --test-concurrency=1 tests/*.test.mjs",
     "prepare": "npm run build",
     "prepublishOnly": "npm test"
   },

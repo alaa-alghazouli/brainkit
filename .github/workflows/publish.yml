@@ -29,6 +29,9 @@ jobs:
       - name: Run test suite
         run: npm test
 
+      - name: Show npm account
+        run: npm whoami
+
       - name: Publish package
         run: npm publish --access public --provenance
         env:

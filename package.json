@@ -1,5 +1,5 @@
 {
-  "name": "@alaa-alghazouli/brainkit",
+  "name": "@alaagh/brainkit",
   "version": "2.0.0",
   "description": "Installable npm bundle of AI skills with CLI and JavaScript API.",
   "type": "module",

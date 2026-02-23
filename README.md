@@ -2,7 +2,7 @@
 
 [![CI](https://github.com/alaa-alghazouli/brainkit/actions/workflows/ci.yml/badge.svg)](https://github.com/alaa-alghazouli/brainkit/actions/workflows/ci.yml)
 [![Latest Release](https://img.shields.io/github/v/release/alaa-alghazouli/brainkit)](https://github.com/alaa-alghazouli/brainkit/releases)
-[![npm version](https://img.shields.io/npm/v/%40alaa-alghazouli%2Fbrainkit)](https://www.npmjs.com/package/@alaa-alghazouli/brainkit)
+[![npm version](https://img.shields.io/npm/v/%40alaagh%2Fbrainkit)](https://www.npmjs.com/package/@alaagh/brainkit)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
 
 `brainkit` is an installable npm package for AI-ready assets:
@@ -16,7 +16,7 @@ It currently includes one production skill: `threejs-performance-optimizer`.
 ## Install with npm
 
 ```bash
-npm install @alaa-alghazouli/brainkit
+npm install @alaagh/brainkit
 ```
 
 ## Install the skill
@@ -56,7 +56,7 @@ brainkit install <skill|all> --dest <path> [--mode artifact|source]
 ## JavaScript API
 
 ```js
-import { listSkills, installSkill } from "@alaa-alghazouli/brainkit";
+import { listSkills, installSkill } from "@alaagh/brainkit";
 
 const skills = listSkills();
 await installSkill("threejs-performance-optimizer", "./local-skills");

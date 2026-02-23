@@ -10,11 +10,11 @@ Core message:
 
 ## Twitter/X post template
 
-"I just open-sourced `brainkit`: an npm-installable AI toolkit repository. It currently includes `threejs-performance-optimizer` for fixing low FPS, draw-call bottlenecks, memory leaks, and R3F jank in Three.js projects.\n\nRepo: https://github.com/alaa-alghazouli/brainkit\nInstall: npm install @alaa-alghazouli/brainkit\n\n#threejs #reactthreefiber #webgl #webgpu #opensource #ai #npm"
+"I just open-sourced `brainkit`: an npm-installable AI toolkit repository. It currently includes `threejs-performance-optimizer` for fixing low FPS, draw-call bottlenecks, memory leaks, and R3F jank in Three.js projects.\n\nRepo: https://github.com/alaa-alghazouli/brainkit\nInstall: npm install @alaagh/brainkit\n\n#threejs #reactthreefiber #webgl #webgpu #opensource #ai #npm"
 
 ## LinkedIn post template
 
-"I published `brainkit`, an open-source npm package for AI-ready skill/tool bundles. The first included skill, `threejs-performance-optimizer`, focuses on practical 3D performance engineering for Three.js and React Three Fiber.\n\nWhat it does:\n- Diagnoses CPU/GPU/memory/loading bottlenecks\n- Prioritizes optimizations in ROI order\n- Produces measurable before/after guidance\n- Prevents outdated API recommendations\n\nRepository: https://github.com/alaa-alghazouli/brainkit\nPackage: https://www.npmjs.com/package/@alaa-alghazouli/brainkit"
+"I published `brainkit`, an open-source npm package for AI-ready skill/tool bundles. The first included skill, `threejs-performance-optimizer`, focuses on practical 3D performance engineering for Three.js and React Three Fiber.\n\nWhat it does:\n- Diagnoses CPU/GPU/memory/loading bottlenecks\n- Prioritizes optimizations in ROI order\n- Produces measurable before/after guidance\n- Prevents outdated API recommendations\n\nRepository: https://github.com/alaa-alghazouli/brainkit\nPackage: https://www.npmjs.com/package/@alaagh/brainkit"
 
 ## Reddit post angles
 

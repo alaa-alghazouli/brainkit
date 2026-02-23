@@ -9,7 +9,7 @@ All notable changes to this project are documented here.
 - Restructured repository into multi-skill layout with:
   - `skills/*` for source skill folders
   - `skill-artifacts/*.skill` for packaged artifacts
-- Added npm package support under `@alaa-alghazouli/brainkit`.
+- Added npm package support under `@alaagh/brainkit`.
 - Added CLI tool `brainkit` with commands for list/manifest/path/install.
 - Added JavaScript API for listing and installing skills.
 - Added comprehensive automated test suite covering API, CLI, build output, and scripts.

@@ -30,7 +30,10 @@ jobs:
         run: npm test
 
       - name: Show npm account
+        continue-on-error: true
         run: npm whoami
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Publish package
         run: npm publish --access public --provenance

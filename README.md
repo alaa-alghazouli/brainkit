@@ -5,52 +5,19 @@
 [![npm version](https://img.shields.io/npm/v/%40alaagh%2Fbrainkit)](https://www.npmjs.com/package/@alaagh/brainkit)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
 
-`brainkit` is an installable npm package for AI-ready assets:
+Install production-ready AI skills with npm
 
-- skills
-- skill artifacts (`.skill`)
-- tool registry space (future)
+## Why Brainkit
 
-It currently includes one production skill: `threejs-performance-optimizer`.
+`brainkit` packages AI skills so teams can install, version, and reuse them through a single npm package.
+It keeps skill delivery simple: discover skills, install artifacts or source, and integrate them into existing workflows.
 
-## Install with npm
+## Quickstart
 
 ```bash
 npm install @alaagh/brainkit
-```
-
-## Install the skill
-
-1. List available skills:
-
-```bash
 npx brainkit list
-```
-
-2. Install the packaged skill artifact:
-
-```bash
-npx brainkit install threejs-performance-optimizer --dest ~/.config/opencode/skills
-```
-
-This creates:
-
-`~/.config/opencode/skills/threejs-performance-optimizer.skill`
-
-3. Optional: install source folder instead of `.skill` artifact:
-
-```bash
-npx brainkit install threejs-performance-optimizer --mode source --dest ~/.config/opencode/skills
-```
-
-## CLI quick reference
-
-```bash
-brainkit list
-brainkit manifest
-brainkit catalog
-brainkit where threejs-performance-optimizer
-brainkit install <skill|all> --dest <path> [--mode artifact|source]
+npx brainkit install threejs-performance-optimizer --dest ./skills
 ```
 
 ## JavaScript API
@@ -62,9 +29,34 @@ const skills = listSkills();
 await installSkill("threejs-performance-optimizer", "./local-skills");
 ```
 
-## What is included today
+```ts
+import { listSkills, installSkill } from "@alaagh/brainkit";
+import type { InstallResult } from "@alaagh/brainkit";
 
-- `threejs-performance-optimizer`: profile-first optimization playbook for Three.js and React Three Fiber performance.
+const skills: string[] = listSkills();
+const result: InstallResult = await installSkill(
+  "threejs-performance-optimizer",
+  "./local-skills",
+);
+```
+
+See `docs/API_REFERENCE.md` for all exported functions.
+
+## CLI reference
+
+```bash
+brainkit list
+brainkit manifest
+brainkit catalog
+brainkit where threejs-performance-optimizer
+brainkit install <skill|all> --dest <path> [--mode artifact|source]
+```
+
+## What's included
+
+- Current production skill: `threejs-performance-optimizer`
+- Skill artifacts in `.skill` format for direct installation
+- Tool registry space in `tools/manifest.json` for future expansion
 
 ## Repository layout
 
@@ -84,4 +76,8 @@ npm test
 
 ## Contributing
 
-See `CONTRIBUTING.md`.
+See `CONTRIBUTING.md` and look for issues labeled `good first issue`.
+
+## License
+
+MIT. See `./LICENSE`.

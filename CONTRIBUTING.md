@@ -2,6 +2,33 @@
 
 Thanks for contributing to `brainkit`.
 
+## Getting started
+
+Prerequisites: [Node.js](https://nodejs.org/) >= 18
+
+```bash
+git clone https://github.com/alaa-alghazouli/brainkit.git
+cd brainkit
+npm install
+npm test
+```
+
+`npm test` runs the build, validates skill manifests, and runs all test suites.
+
+## Architecture
+
+The package has three source files:
+
+- `src/index.js` - JavaScript API (7 exported functions: list, install, manifest, paths)
+- `src/cli.js` - CLI entry point (5 commands: list, manifest, catalog, where, install)
+- `src/index.d.ts` - Hand-written TypeScript definitions
+
+Skills live in `skills/<name>/` with a `SKILL.md` frontmatter file. Packaged artifacts go in `skill-artifacts/<name>.skill`. Both are validated by `scripts/validate-skills.mjs` against `skills/manifest.json`.
+
+The build (`scripts/build.mjs`) copies source and data directories to `dist/`.
+
+For deeper detail, see `AGENTS.md`.
+
 ## Ways to contribute
 
 - Improve optimization guidance in `skills/threejs-performance-optimizer/SKILL.md`
@@ -39,6 +66,10 @@ Look for issues labeled:
 - `good first issue`
 - `help wanted`
 
+## Project direction
+
+See [ROADMAP.md](./ROADMAP.md) for current priorities and planned work.
+
 ## Code of conduct
 
-Be respectful, constructive, and specific.
+This project follows the [Contributor Covenant](./CODE_OF_CONDUCT.md). Please read it before participating.

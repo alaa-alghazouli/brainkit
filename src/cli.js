@@ -121,7 +121,11 @@ async function run() {
 
     const options = parseOptions(argv.slice(2));
     if (!options.dest) {
-      throw new Error("Destination path is required. Use --dest <path>.");
+      throw new Error(
+        "Missing required option --dest.\n\n" +
+          "Example:\n" +
+          "  brainkit install threejs-performance-optimizer --dest ./my-skills",
+      );
     }
 
     if (!["artifact", "source"].includes(options.mode)) {

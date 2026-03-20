@@ -86,7 +86,7 @@ test("cli install requires destination", () => {
   const result = runCli(["install", knownSkill]);
 
   assert.equal(result.status, 1);
-  assert.match(result.stderr, /Destination path is required\. Use --dest <path>\./);
+  assert.match(result.stderr, /Missing required option --dest/);
 });
 
 test("cli install fails on missing value for --dest", () => {

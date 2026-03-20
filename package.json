@@ -1,6 +1,6 @@
 {
   "name": "@alaagh/brainkit",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Install production-ready AI skills with npm",
   "type": "module",
   "main": "dist/index.js",

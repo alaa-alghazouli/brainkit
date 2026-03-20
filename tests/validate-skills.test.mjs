@@ -63,10 +63,6 @@ test("validate-skills fails when SKILL.md is missing", () => {
 
 test("validate-skills fails when frontmatter has invalid keys", () => {
   const original = readFileSync(SKILL_MD, "utf8");
-  const bad = original.replace(
-    /^---\n/,
-    "---\nname: test\ndescription: test\nauthor: nobody\n---\nOVERWRITTEN\n",
-  );
   // Overwrite with frontmatter containing an extra key (author)
   writeFileSync(
     SKILL_MD,

@@ -211,7 +211,7 @@ test("cli ignores unknown trailing tokens", () => {
   ]);
 
   assert.equal(result.status, 0);
-  
+
   const outputPath = path.join(destination, `${knownSkill}.skill`);
   assert.ok(existsSync(outputPath));
   assert.match(result.stdout, new RegExp(`${knownSkill} ->`));

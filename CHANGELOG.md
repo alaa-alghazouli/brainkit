@@ -2,6 +2,17 @@
 
 All notable changes to this project are documented here.
 
+## [2.0.1] - 2026-03-20
+
+### Added
+
+- Comprehensive failure path tests added for scripts and CLI edge cases.
+
+### Fixed
+
+- CLI option parsing hardened for missing values (`--dest`, `--mode`).
+- CI steps split for better attribution.
+
 ## [2.0.0] - 2026-02-14
 
 ### Added

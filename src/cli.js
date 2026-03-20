@@ -19,12 +19,18 @@ function parseOptions(argv) {
     const token = argv[index];
 
     if (token === "--dest") {
+      if (index + 1 >= argv.length || argv[index + 1].startsWith("--")) {
+        throw new Error("Missing value for --dest.");
+      }
       options.dest = argv[index + 1];
       index += 1;
       continue;
     }
 
     if (token === "--mode") {
+      if (index + 1 >= argv.length || argv[index + 1].startsWith("--")) {
+        throw new Error("Missing value for --mode.");
+      }
       options.mode = argv[index + 1];
       index += 1;
       continue;

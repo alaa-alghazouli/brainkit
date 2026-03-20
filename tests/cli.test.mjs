@@ -89,6 +89,34 @@ test("cli install requires destination", () => {
   assert.match(result.stderr, /Destination path is required\. Use --dest <path>\./);
 });
 
+test("cli install fails on missing value for --dest", () => {
+  const result = runCli(["install", knownSkill, "--dest"]);
+
+  assert.equal(result.status, 1);
+  assert.match(result.stderr, /Missing value for --dest\./);
+});
+
+test("cli install fails when flag follows --dest", () => {
+  const result = runCli(["install", knownSkill, "--dest", "--mode", "source"]);
+
+  assert.equal(result.status, 1);
+  assert.match(result.stderr, /Missing value for --dest\./);
+});
+
+test("cli install fails on missing value for --mode", () => {
+  const destination = createTempDir("brainkit-cli-missing-mode-");
+  const result = runCli([
+    "install",
+    knownSkill,
+    "--dest",
+    destination,
+    "--mode",
+  ]);
+
+  assert.equal(result.status, 1);
+  assert.match(result.stderr, /Missing value for --mode\./);
+});
+
 test("cli install validates mode", () => {
   const result = runCli([
     "install",

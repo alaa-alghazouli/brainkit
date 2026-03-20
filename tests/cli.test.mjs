@@ -180,3 +180,39 @@ test("cli reports unknown commands", () => {
   assert.equal(result.status, 1);
   assert.match(result.stderr, /Unknown command: shipit/);
 });
+
+test("cli where unknown-skill fails", () => {
+  const result = runCli(["where", "unknown-skill"]);
+
+  assert.equal(result.status, 1);
+  assert.match(result.stderr, /Unknown skill: unknown-skill/);
+});
+
+test("cli install all copies default artifact", () => {
+  const destination = createTempDir("brainkit-cli-install-all-artifact-");
+  const result = runCli(["install", "all", "--dest", destination]);
+
+  assert.equal(result.status, 0);
+
+  const outputPath = path.join(destination, `${knownSkill}.skill`);
+  assert.ok(existsSync(outputPath));
+  assert.match(result.stdout, new RegExp(`${knownSkill} ->`));
+});
+
+test("cli ignores unknown trailing tokens", () => {
+  const destination = createTempDir("brainkit-cli-trailing-tokens-");
+  const result = runCli([
+    "install",
+    knownSkill,
+    "--dest",
+    destination,
+    "--foo",
+    "bar",
+  ]);
+
+  assert.equal(result.status, 0);
+  
+  const outputPath = path.join(destination, `${knownSkill}.skill`);
+  assert.ok(existsSync(outputPath));
+  assert.match(result.stdout, new RegExp(`${knownSkill} ->`));
+});

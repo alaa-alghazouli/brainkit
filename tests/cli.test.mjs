@@ -4,6 +4,10 @@ import os from "node:os";
 import path from "node:path";
 import { spawnSync } from "node:child_process";
 import test from "node:test";
+import { createRequire } from "node:module";
+
+const require = createRequire(import.meta.url);
+const packageJson = require("../package.json");
 
 const cliPath = path.resolve("dist/cli.js");
 const knownSkill = "threejs-performance-optimizer";
@@ -24,6 +28,23 @@ test("cli prints help when no command is provided", () => {
   assert.equal(result.status, 0);
   assert.match(result.stdout, /brainkit CLI/);
   assert.match(result.stdout, /Usage:/);
+  assert.match(result.stdout, /brainkit version/);
+});
+
+test("cli version command prints package version", () => {
+  const result = runCli(["version"]);
+
+  assert.equal(result.status, 0);
+  assert.equal(result.stdout.trim(), packageJson.version);
+  assert.equal(result.stderr, "");
+});
+
+test("cli version flag prints package version", () => {
+  const result = runCli(["--version"]);
+
+  assert.equal(result.status, 0);
+  assert.equal(result.stdout.trim(), packageJson.version);
+  assert.equal(result.stderr, "");
 });
 
 test("cli list prints bundled skills", () => {

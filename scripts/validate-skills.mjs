@@ -77,7 +77,7 @@ for (const slug of skillSlugs) {
   }
 
   const content = readFileSync(skillFile, "utf8");
-  const frontmatterMatch = content.match(/^---\n([\s\S]*?)\n---\n/);
+  const frontmatterMatch = content.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n/);
 
   if (!frontmatterMatch) {
     throw new Error(`Missing YAML frontmatter in ${skillFile}`);

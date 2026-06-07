@@ -1,5 +1,9 @@
 #!/usr/bin/env node
 
+import { readFileSync } from "fs";
+import { join } from "path";
+import { fileURLToPath } from "url";
+
 import {
   getManifest,
   getSkillArtifactPath,
@@ -9,6 +13,14 @@ import {
   installSkill,
   listSkills,
 } from "./index.js";
+
+const __dirname = fileURLToPath(new URL(".", import.meta.url));
+
+function getVersion() {
+  const packageJsonPath = join(__dirname, "..", "package.json");
+  const packageJson = JSON.parse(readFileSync(packageJsonPath, "utf8"));
+  return packageJson.version;
+}
 
 function parseOptions(argv) {
   const options = {
@@ -47,12 +59,14 @@ Usage:
   brainkit list
   brainkit catalog
   brainkit manifest
+  brainkit version
   brainkit where <skill> [--mode artifact|source]
   brainkit install <skill|all> --dest <path> [--mode artifact|source]
 
 Examples:
   brainkit list
   brainkit catalog
+  brainkit version
   brainkit install threejs-performance-optimizer --dest ~/.config/opencode/skills
   brainkit install all --mode source --dest ./local-skills
 `);
@@ -69,6 +83,15 @@ async function run() {
     command === "-h"
   ) {
     printHelp();
+    return;
+  }
+
+  if (
+    command === "version" ||
+    command === "--version" ||
+    command === "-v"
+  ) {
+    console.log(getVersion());
     return;
   }
 

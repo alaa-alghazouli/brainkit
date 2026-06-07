@@ -24,6 +24,24 @@ test("cli prints help when no command is provided", () => {
   assert.equal(result.status, 0);
   assert.match(result.stdout, /brainkit CLI/);
   assert.match(result.stdout, /Usage:/);
+  assert.match(result.stdout, /brainkit version/);
+});
+
+test("cli version prints current package version", () => {
+  const packageJson = JSON.parse(readFileSync("package.json", "utf8"));
+  const expectedVersion = packageJson.version;
+
+  const result1 = runCli(["version"]);
+  assert.equal(result1.status, 0);
+  assert.equal(result1.stdout.trim(), expectedVersion);
+
+  const result2 = runCli(["--version"]);
+  assert.equal(result2.status, 0);
+  assert.equal(result2.stdout.trim(), expectedVersion);
+
+  const result3 = runCli(["-v"]);
+  assert.equal(result3.status, 0);
+  assert.equal(result3.stdout.trim(), expectedVersion);
 });
 
 test("cli list prints bundled skills", () => {

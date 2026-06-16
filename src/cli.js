@@ -1,5 +1,8 @@
 #!/usr/bin/env node
 
+import { readFileSync } from "node:fs";
+import { dirname, join } from "node:path";
+import { fileURLToPath } from "node:url";
 import {
   getManifest,
   getSkillArtifactPath,
@@ -9,6 +12,13 @@ import {
   installSkill,
   listSkills,
 } from "./index.js";
+
+const packageJson = JSON.parse(
+  readFileSync(
+    join(dirname(fileURLToPath(import.meta.url)), "..", "package.json"),
+    "utf8",
+  ),
+);
 
 function parseOptions(argv) {
   const options = {
@@ -47,6 +57,7 @@ Usage:
   brainkit list
   brainkit catalog
   brainkit manifest
+  brainkit version
   brainkit where <skill> [--mode artifact|source]
   brainkit install <skill|all> --dest <path> [--mode artifact|source]
 
@@ -69,6 +80,11 @@ async function run() {
     command === "-h"
   ) {
     printHelp();
+    return;
+  }
+
+  if (command === "version" || command === "--version" || command === "-v") {
+    console.log(packageJson.version);
     return;
   }
 
